@@ -230,6 +230,7 @@ button.close-emoji i {
 }
 .btn-emoji i {
   font-size: 24px;
+  padding-left: 0;
 }
 /* author */
 p.author {
