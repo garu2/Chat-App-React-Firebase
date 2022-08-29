@@ -7,7 +7,13 @@ const LogOut = () => {
     
     return ( 
         <>
-            <button onClick={() => auth.signOut()}>LogOut</button>
+            <button 
+                onClick={() => auth.signOut()}
+                className='btn-login btn-logout'
+            >
+                <i className="fa-brands fa-google"></i>
+                Logout
+            </button>
         </>
     );
 }

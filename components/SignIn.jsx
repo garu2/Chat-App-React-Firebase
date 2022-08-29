@@ -1,4 +1,3 @@
-//import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
 import { GoogleAuthProvider, signInWithRedirect } from 'firebase/auth';
 
@@ -8,11 +7,15 @@ const SignIn = () => {
     signInWithRedirect(auth, provider);
   }
 
-
   return (
     <>
-      <h2>From SignIn</h2>
-      <button onClick={googleSignIn}>Sign In</button>
+      <button 
+        className='btn-login' 
+        onClick={googleSignIn}
+      >
+        <i className="fa-brands fa-google"></i>
+        Sign in with Google
+      </button>
     </>
   );
 }

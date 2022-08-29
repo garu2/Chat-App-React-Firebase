@@ -1,42 +1,245 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 70%;
+  margin: 2% auto;
   display: flex;
+  gap: 20px;
+}
+
+/* Chat Section */
+.chat-content {
+  background-color: #F3F6FB;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 25px;
+  padding: 39px;
+  height: 80vh;
+  overflow: auto;
+  
+}
+
+/* Message Section */
+.message {
+  text-align: left;
+  margin-bottom: 10px;
+  display: flex;
+}
+.message .text-message {
+  background-color: #1A233B;
+  display: inline-block;
+  border-radius: 12px;
+  padding: 0 14px;
+}
+.message > div {
+  display: inline-block;
+  order: 1;
+}
+.message img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  vertical-align: top;
+  margin-right: 10px;
+  object-fit: cover;
+  order: 0;
+}
+.message p.text{
+  color: #fff;
+  line-height: 15px;
+}
+.message p.user {
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.my-message {
+  text-align: right;
+  margin-bottom: 10px;
+  
+}
+.my-message .text-message {
+  background-color: #fff;
+  display: inline-block;
+  border-radius: 12px;
+  padding: 0 14px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+.my-message > div {
+  display: inline-block;
+}
+.my-message img {
+  width: 45px;
+  border-radius: 50%;
+  vertical-align: top;
+  margin-left: 10px;
+}
+.my-message p.text{
+  color: #1A233B;
+  line-height: 15px;
+}
+.my-message p.user {
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+/* Send Message Component */
+form {
+  background-color: #fff;
+  padding: 20px 20px;
+  border-radius: 13px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+
+  position: relative;
+}
+input[type="text"] {
+  border: solid 1px #d4d3d3;
+  padding: 14px 12px;
+  font-size: inherit;
+  border-radius: 6px;
+  outline: none;
+  flex-grow: 6;
+}
+form button {
+  background-color: #004DFC;
+  padding: 15px 0;
+  font-size: inherit;
+  border-radius: 8px;
+  outline: none;
+  border: 0px;
+  color: #fff;
+  flex-grow: 2;
+  transition: .3s;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #1A233B;
+}
+form button i {
+  padding-left: 6px;
+}
+
+/* styles to scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1A233B; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #d0ced4; 
+}
+
+/* User Component */
+.right-side {
+  width: 30%;
+}
+.right-side h1 i {
+  margin-right: 10px;
+}
+.card-user {
+  border: 1px solid #d4d3d3;
+  border-radius: 25px;
+  background-color: #F5F8FC;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+}
+.card-user p {
+  font-weight: 500;
+}
+.card-user img {
+  width: 90px;
+  border-radius: 50%;
+  display: block;
+}
+/* Login Btn */
+.btn-login {
+  font-size: inherit;
+  background-color: #4082ED;
+  outline: none;
+  color: #fff;
+  padding: 0 9px 0 0;
+  border: 2px solid #4082ED;
+  cursor: pointer;
+  border-radius: 3px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.btn-login i {
+  background-color: #fff;
+  color: #4082ED;
+  padding: 5px;
+  margin-right: 8px;
+  font-size: 26px;
+}
+.btn-login.btn-logout {
+  background-color: #a0a3a7;
+  border: 2px solid #a0a3a7;
+}
+.btn-login.btn-logout i {
+  font-size: 20px;
+  color: #a0a3a7;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 700px) {
+  .App {
+    flex-wrap: wrap;
+    text-align: center;
   }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
-button {
-  font-size: calc(10px + 2vmin);
+/* Emojis */
+.open {
+  display: block;
+  position: absolute;
+  top: -347px;
+}
+.close {
+  display: none;
+}
+button.close-emoji{
+  position: relative;
+  right: -46%;
+  top: 2px;
+  padding: 2px;
+  background-color: #ffffff00;
+}
+button.close-emoji:hover {
+  background-color: #ffffff00;
+}
+button.close-emoji i {
+  color: #004DFC;
+}
+.btn-emoji {
+  padding: 0;
+  flex-grow: 1;
+}
+.btn-emoji i {
+  font-size: 24px;
+}
+/* author */
+p.author {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  gap: 7px;
+}
+p.author a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #000;
 }

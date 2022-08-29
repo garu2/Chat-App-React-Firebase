@@ -4,10 +4,13 @@ import Message from "./Message";
 import {db} from '../firebase';
 import {query, collection, orderBy, onSnapshot} from 'firebase/firestore';
 import SendMessage from "./SendMessage";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
 
 const Chat = () => {
     const [message, setMessage] = useState([]);
     const scroll = useRef();
+    const [user] = useAuthState(auth);
 
     useEffect(() => {
         const q = query(collection(db, 'messages'), orderBy('timestamp'));
@@ -17,15 +20,13 @@ const Chat = () => {
                 messages.push({...doc.data(), id: doc.id})
             });
             setMessage(messages);
-            console.log(messages);
         })
         return () => unsubscribe();
     }, [])
 
     return ( 
         <>
-            <section>
-                <h2>From Chat</h2>
+            <section className="chat-content">
                 {
                     message && message.map(item => (
                         <Message
@@ -34,9 +35,10 @@ const Chat = () => {
                         />
                     ))
                 }
-            </section>
+            { user && <SendMessage scroll={scroll}/> }
+            
             <span ref={scroll}></span>
-            <SendMessage/>
+            </section>
         </>
      );
 }
