@@ -5,7 +5,9 @@
  [Deploy](https://chat-app-react-firebase-three.vercel.app/)
  
 ## 💻Tutorial
-[YouTube](https://youtu.be/8tZWY7zVHLU)
+<a href='https://youtu.be/8tZWY7zVHLU' target='_blank'>
+    <img width='30%' src='https://img.youtube.com/vi/8tZWY7zVHLU/mqdefault.jpg' alt='React Chat Firebase' />
+</a>
 
 ## 📦Getting Started
 ```
